@@ -1,18 +1,14 @@
+%define upstream_name    Graphics-ColorNames
+%define upstream_version 2.11
 
-%define realname   Graphics-ColorNames
-%define version    2.11
-%define release    %mkrel 1
-
-Name:       perl-%{realname}
-Version:    %{version}
-Release:    %{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
 License:    GPL or Artistic
 Group:      Development/Perl
 Summary:    provides RGB values for standard color names
-Source:     http://www.cpan.org/modules/by-module/Graphics/%{realname}-%{version}.tar.gz
-Url:        http://search.cpan.org/dist/%{realname}
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: perl-devel
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Graphic/%{upstream_name}-%{upstream_version}.tar.gz
 BuildRequires: perl(Carp)
 BuildRequires: perl(DirHandle)
 BuildRequires: perl(Exporter)
@@ -25,8 +21,8 @@ BuildRequires: perl(Test::Exception)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(base)
 BuildRequires: perl(Module::Build::Compat)
-
 BuildArch: noarch
+BuildRoot:  %{_tmppath}/%{name}-%{version}
 
 %description
 This module provides a common interface for obtaining the RGB values of
@@ -41,7 +37,7 @@ For example,
   use Graphics::ColorNames 2.10;
 
 %prep
-%setup -q -n %{realname}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
