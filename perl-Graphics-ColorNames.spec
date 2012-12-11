@@ -1,28 +1,29 @@
 %define upstream_name    Graphics-ColorNames
 %define upstream_version 2.11
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
-License:    GPL or Artistic
-Group:      Development/Perl
-Summary:    provides RGB values for standard color names
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Graphic/%{upstream_name}-%{upstream_version}.tar.gz
-BuildRequires: perl(Carp)
-BuildRequires: perl(DirHandle)
-BuildRequires: perl(Exporter)
-BuildRequires: perl(File::Spec)
-BuildRequires: perl(FileHandle)
-BuildRequires: perl(IO::File)
-BuildRequires: perl(Module::Load)
-BuildRequires: perl(Module::Loaded)
-BuildRequires: perl(Test::Exception)
-BuildRequires: perl(Test::More)
-BuildRequires: perl(base)
-BuildRequires: perl(Module::Build::Compat)
-BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
+License:	GPL or Artistic
+Group:		Development/Perl
+Summary:	Provides RGB values for standard color names
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Graphic/%{upstream_name}-%{upstream_version}.tar.gz
+
+BuildRequires:	perl-devel
+BuildRequires:	perl(Carp)
+BuildRequires:	perl(DirHandle)
+BuildRequires:	perl(Exporter)
+BuildRequires:	perl(File::Spec)
+BuildRequires:	perl(FileHandle)
+BuildRequires:	perl(IO::File)
+BuildRequires:	perl(Module::Load)
+BuildRequires:	perl(Module::Loaded)
+BuildRequires:	perl(Test::Exception)
+BuildRequires:	perl(Test::More)
+BuildRequires:	perl(base)
+BuildRequires:	perl(Module::Build::Compat)
+BuildArch:	noarch
 
 %description
 This module provides a common interface for obtaining the RGB values of
@@ -40,23 +41,31 @@ For example,
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README Changes
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+
+%changelog
+* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 2.110.0-2mdv2011.0
++ Revision: 654339
+- rebuild for updated spec-helper
+
+* Sat Nov 27 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.110.0-1mdv2011.0
++ Revision: 602038
+- normalize perl version
+
+* Sat Sep 25 2010 Shlomi Fish <shlomif@mandriva.org> 2.11-1mdv2011.0
++ Revision: 580993
+- import perl-Graphics-ColorNames
 
