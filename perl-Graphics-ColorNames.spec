@@ -7,7 +7,7 @@ Release:	5
 License:	GPL or Artistic
 Group:		Development/Perl
 Summary:	Provides RGB values for standard color names
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Graphic/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
