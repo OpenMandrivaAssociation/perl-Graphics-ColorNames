@@ -1,12 +1,13 @@
 %define upstream_name    Graphics-ColorNames
+%define upstream_version v3.5.0
 Name:		perl-%{upstream_name}
-Version:	2.11
-Release:	6
+Version:	3.5.0
+Release:	1
 License:	GPL or Artistic
 Group:		Development/Perl
 Summary:	Provides RGB values for standard color names
 Url:		https://metacpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Graphic/%{upstream_name}-%{version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/R/RR/RRWO/Graphics-ColorNames-v3.5.0.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -54,17 +55,4 @@ make test
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 
-
-%changelog
-* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 2.110.0-2mdv2011.0
-+ Revision: 654339
-- rebuild for updated spec-helper
-
-* Sat Nov 27 2010 Guillaume Rousse <guillomovitch@mandriva.org> 2.110.0-1mdv2011.0
-+ Revision: 602038
-- normalize perl version
-
-* Sat Sep 25 2010 Shlomi Fish <shlomif@mandriva.org> 2.11-1mdv2011.0
-+ Revision: 580993
-- import perl-Graphics-ColorNames
 
