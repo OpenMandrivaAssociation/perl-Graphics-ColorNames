@@ -1,8 +1,8 @@
 %define upstream_name    Graphics-ColorNames
-%define upstream_version v3.5.0
+%define upstream_version 3.5.0
 Name:		perl-%{upstream_name}
 Version:	3.5.0
-Release:	18
+Release:	19
 License:	GPL or Artistic
 Group:		Development/Perl
 Summary:	Provides RGB values for standard color names
