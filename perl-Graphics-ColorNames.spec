@@ -2,7 +2,7 @@
 %define upstream_version v3.5.0
 Name:		perl-%{upstream_name}
 Version:	3.5.0
-Release:	17
+Release:	18
 License:	GPL or Artistic
 Group:		Development/Perl
 Summary:	Provides RGB values for standard color names
@@ -45,15 +45,13 @@ perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-# soft: do not fail package on test failures
-set +e
 make test || :
 
 %install
 %makeinstall_std
 
 %files
-%doc README Changes
+%doc META.json Changes INSTALL README.md META.yml LICENSE
 %{_mandir}/man3/*
 %{perl_vendorlib}/*
 
